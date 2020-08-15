@@ -45,7 +45,7 @@ Where:
 
 ```single_tags``` is a list of tags that you don't want to occur more than once in your schedule (you can leave it off, and it will be the same as ```critical_tags```)
 
-If you are comfotable with doing so, you might consider changing these values in your local copy of the python code to avoid adding all these command line parameters. 
+If you are comfotable with doing so, you might consider changing the default values in your local copy of the python code to avoid adding all these command line parameters. 
 
 The rating of a schedule is computed by summing all of the ratings of the constituent classes, plus 1 for each of the critical tags that are present (this is why your ratings should be less than 1). 
 
