@@ -16,7 +16,7 @@ def load(filename):
 # generate a list of schedules, of length given by maximum, with no conflicts
 def generate_schedules(classes, conflicts, single_tags, maximum):
 	if maximum == 0: return [[]]
-	long_list =  [schedule+[one_class] for one_class in classes for schedule in generate_schedules(classes, conflicts, single_tags, maximum - 1)]
+	long_list =  [schedule+[classes[i]] for i in range(len(classes)) for schedule in generate_schedules(classes[i+1:], conflicts, single_tags, maximum - 1)]
 	return [schedule for schedule in long_list if not conflicted(schedule, conflicts, single_tags)]
 	
 # determine whether a schedule has any conflicts
@@ -49,7 +49,7 @@ def nice_print(schedule):
 	
 if __name__ == "__main__":
 	
-	filename = "classes_FA_20.txt"
+	filename = "classes_FA_21.txt"
 	try: filename = sys.argv[1]
 	except: pass
 	
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 	try: critical_tags = eval(sys.argv[4])
 	except: pass
 	
-	single_tags = critical_tags
+	single_tags = []
 	try: single_tags = eval(sys.argv[5])
 	except: pass
 			
